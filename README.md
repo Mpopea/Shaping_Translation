@@ -1,4 +1,7 @@
 # Shaping_Translation
+UPDATE 10.12.20: I am currently finishing a chapter of my thesis and will upload my code for this project between 21.12 and 31.12
+
+
 Welcome to the repo containing the complementary material for my article titled "Shaping translation in two Mexican cultural magazines:  a case study in the use of quantitative methods for the analysis of translation in periodical publications."
 
 
