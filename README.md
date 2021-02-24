@@ -1,5 +1,5 @@
 # Shaping_Translation
-UPDATE 10.12.20: I am currently finishing a chapter of my thesis and will upload my code for this project between 21.12 and 31.12
+UPDATE 24.02.21: I am working on many things at the same time, so I have decided to upload my code in batches in order not to delay it too much. For now, roughly half of my code for the Revista Azul is available. The plots relative to the signature type, its combination with the other variables, and the explorations of aspects not mentioned in my article will follow shortly. The code is the same for the Revista Moderna (except plot numbers), so feel free to use it with the dataRM dataset, but bear in mind that you will have the wrong labels. Thanks for your patience!
 
 
 Welcome to the repo containing the complementary material for my article titled "Shaping translation in two Mexican cultural magazines:  a case study in the use of quantitative methods for the analysis of translation in periodical publications."
