@@ -388,5 +388,122 @@ ggplot(data, aes(num, ini))+
        caption="The size of the bubbles represents the length of the translations")
 
 
+
 #4. Introducing the signature/mention as a variable
-#COMING SOON
+
+#frequency translators:
+translators<-as.data.frame(table(data$trad))
+translators2<-filter(translators, !Var1%in%"no hay")
+translators2$Var1<-factor(translators2$Var1, levels=translators2$Var1[order(translators2$Freq)])
+
+#c4a overall ranking of translators and signature types (horizontal barchart)
+ggplot(translators2, aes(Var1, Freq))+
+  geom_bar(position="dodge", stat="identity")+ 
+  coord_flip()+
+  labs(x=NULL,
+       y="Number of translated texts",
+       title="Number of translations per translator in the Revista Azul",
+       subtitle="(with gacetillas)",
+       caption="'anon si' represents anonymous translations that are identified as such in the magazine, 'anon no' are anonymous translated text with no mention whatsoever of the translation process.",
+       tag="Fig. c4a")+
+  theme(axis.text.y = element_text(size=7.7))
+
+#same without gacetillas:
+translatorswo <-as.data.frame(table(datawo$trad))
+translatorswo2<-filter(translatorswo, !Var1%in%"no hay")
+translatorswo2$Var1<-factor(translatorswo2$Var1, levels=translatorswo2$Var1[order(translatorswo2$Freq)])
+
+#c4a-w/o overall ranking of translators and signature types (horizontal barchart)
+ggplot(translatorswo2, aes(Var1, Freq))+
+  geom_bar(position="dodge", stat="identity")+ 
+  coord_flip()+
+  labs(x=NULL,
+       y="Number of translated texts",
+       title="Number of translations per translator in the Revista Azul",
+       subtitle="(without gacetillas)",
+       caption="'anon si' represents anonymous translations that are identified as such in the magazine, 'anon no' are anonymous translated text with no mention whatsoever of the translation process.",
+       tag="Fig. c4a-w/o")+
+  theme(axis.text.y = element_text(size=7.7))
+
+
+#Ranking of translators by year
+datayr1<-filter(data,yr==1)
+datayr2<-filter(data,yr==2)
+datayr3<-filter(data,yr==3)
+datayr4<-filter(data,yr==4)
+datayr5<-filter(data,yr==5)
+
+#c4b translators ranking in vol1
+translatorsyr1<-as.data.frame(table(datayr1$trad))
+translatorsyyy<-as.data.frame(table(data$trad))
+translatorsyr1b<-filter(translatorsyr1, !Freq%in%0, !Var1%in%"no hay")
+translatorsyr1b$Var1<-factor(translatorsyr1b$Var1, levels=translatorsyr1b$Var1[order(translatorsyr1b$Freq)])
+ggplot(translatorsyr1b, aes(Var1, Freq))+
+  geom_bar(position="dodge",stat="identity")+ 
+  coord_flip()+
+  labs(x=NULL,
+       y="Number of translated texts",
+       title="Number of translations per translator in the first volume of the Revista Azul",
+       subtitle="(with gacetillas)",
+       caption="anon si represents anonymous translations that are identified as such in the magazine, anon no are anonymous translated text with no mention whatsoever of the translation process.",
+       tag="Fig. c4b")
+
+#c4c translators ranking in vol2
+translatorsyr2<-as.data.frame(table(datayr2$trad))
+translatorsyr2b<-filter(translatorsyr2, !Freq%in%0, !Var1%in%"no hay")
+translatorsyr2b$Var1<-factor(translatorsyr2b$Var1, levels=translatorsyr2b$Var1[order(translatorsyr2b$Freq)])
+ggplot(translatorsyr2b, aes(Var1, Freq))+
+  geom_bar(position="dodge",stat="identity")+ 
+  coord_flip()+
+  labs(x=NULL,
+       y="Number of translated texts",
+       title="Number of translations per translator in the second volume of the Revista Azul",
+       subtitle="(with gacetillas)",
+       caption="anon si represents anonymous translations that are identified as such in the magazine, anon no are anonymous translated text with no mention whatsoever of the translation process.",
+       tag="Fig. c4c")
+
+#c4d translators ranking in vol3
+translatorsyr3<-as.data.frame(table(datayr3$trad))
+translatorsyr3b<-filter(translatorsyr3, !Freq%in%0, !Var1%in%"no hay")
+translatorsyr3b$Var1<-factor(translatorsyr3b$Var1, levels=translatorsyr3b$Var1[order(translatorsyr3b$Freq)])
+ggplot(translatorsyr3b, aes(Var1, Freq))+
+  geom_bar(position="dodge",stat="identity")+ 
+  coord_flip()+
+  labs(x=NULL,
+       y="Number of translated texts",
+       title="Number of translations per translator in the third volume of the Revista Azul",
+       subtitle="(with gacetillas)",
+       caption="anon si represents anonymous translations that are identified as such in the magazine, anon no are anonymous translated text with no mention whatsoever of the translation process.",
+       tag="Fig. c4d")
+
+#c4e translators ranking in vol4
+translatorsyr4<-as.data.frame(table(datayr4$trad))
+translatorsyr4b<-filter(translatorsyr4, !Freq%in%0, !Var1%in%"no hay")
+translatorsyr4b$Var1<-factor(translatorsyr4b$Var1, levels=translatorsyr4b$Var1[order(translatorsyr4b$Freq)])
+ggplot(translatorsyr4b, aes(Var1, Freq))+
+  geom_bar(position="dodge",stat="identity")+ 
+  coord_flip()+
+  labs(x=NULL,
+       y="Number of translated texts",
+       title="Number of translations per translator in the fourth volume of the Revista Azul",
+       subtitle="(with gacetillas)",
+       caption="anon si represents anonymous translations that are identified as such in the magazine, anon no are anonymous translated text with no mention whatsoever of the translation process.",
+       tag="Fig. c4e")
+
+#c4f translators ranking in vol5
+translatorsyr5<-as.data.frame(table(datayr5$trad))
+translatorsyr5b<-filter(translatorsyr5, !Freq%in%0, !Var1%in%"no hay")
+translatorsyr5b$Var1<-factor(translatorsyr5b$Var1, levels=translatorsyr5b$Var1[order(translatorsyr5b$Freq)])
+ggplot(translatorsyr5b, aes(Var1, Freq))+
+  geom_bar(position="dodge",stat="identity")+ 
+  coord_flip()+
+  labs(x=NULL,
+       y="Number of translated texts",
+       title="Number of translations per translator in the fifth volume of the Revista Azul",
+       subtitle="(with gacetillas)",
+       caption="anon si represents anonymous translations that are identified as such in the magazine, anon no are anonymous translated text with no mention whatsoever of the translation process.",
+       tag="Fig. c4f")
+
+#versions of these plots without gacetillas are not included as the only difference in them would be the slightly smaller proportion of anon no translations in the first volumes, which is not particulaly relevant here.
+
+#*to be continued*
